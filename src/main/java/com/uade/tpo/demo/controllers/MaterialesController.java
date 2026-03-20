@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -46,6 +47,13 @@ public class MaterialesController {
         if (result.isPresent())
             return ResponseEntity.ok(result.get());
 
+        return ResponseEntity.noContent().build();
+    }
+
+    @DeleteMapping("/{materialId}")
+    public ResponseEntity<Object> deleteMaterial(@PathVariable int materialId) {
+        materialService.deleteMaterial(materialId);
+        
         return ResponseEntity.noContent().build();
     }
 }

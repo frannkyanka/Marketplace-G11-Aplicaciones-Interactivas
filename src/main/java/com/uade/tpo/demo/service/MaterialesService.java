@@ -25,4 +25,8 @@ public class MaterialesService {
     public Material createMaterial(int id, String name) {
         return materialRepository.createMaterial(id, name);
     }
+
+    public void deleteMaterial(int id) {
+        materialRepository.deleteMaterial(id);
+    }
 }

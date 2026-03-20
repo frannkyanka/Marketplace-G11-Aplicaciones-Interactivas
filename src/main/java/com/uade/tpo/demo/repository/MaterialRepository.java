@@ -28,6 +28,10 @@ public class MaterialRepository {
         return newMaterial;
     }
 
+    public void deleteMaterial(int id) {
+        materiales.removeIf(m -> m.getId() == id);
+    }
+    
     public Optional<Material> getMaterialById(int id) {
         return this.materiales.stream().filter(m -> m.getId() == id).findFirst();
     }
